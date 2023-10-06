@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue 3 Composition API Demo</title>
+    <!-- Add your CSS file link here -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="app">
+        <!-- 1. Template Syntax -->
+        <div>
+            <p>{{ message }}</p> <!-- a. Text Interpolation -->
+            <p v-html="rawHTML"></p> <!-- b. Raw HTML -->
+            <div :id="dynamicId"></div> <!-- c. Attribute Bindings -->
+            <p>{{ calculateSum(5, 3) }}</p> <!-- d. JavaScript expressions -->
+        </div>
+
+        <!-- 5. Class and Style Bindings -->
+        <div :class="{ active: isActive }">Class Binding</div> <!-- a. Binding HTML class -->
+        <div :style="{ color: textColor }">Style Binding</div> <!-- b. Binding Inline Styles -->
+
+        <!-- 6. List Rendering -->
+        <ul>
+            <li v-for="item in objectItems">{{ item.name }}</li> <!-- a. v-for with an Object -->
+            <li v-for="n in 5">{{ n }}</li> <!-- b. v-for with a Range -->
+            <template v-for="item in items"> <!-- c. v-for on <template> -->
+                <li :key="item.id">{{ item.name }}</li>
+            </template>
+            <li v-for="item in items" v-if="item.active">{{ item.name }}</li> <!-- d. v-for with v-if -->
+            <!-- e. v-for with a Component: Add a component here -->
+        </ul>
+
+        <!-- 7. Event Handling -->
+        <button @click="handleClick">Click me</button> <!-- a. Inline Handlers -->
+        <button @click="handleButtonClick">Click me</button> <!-- b. Method Handlers -->
+
+        <!-- 8. Form Input Bindings -->
+        <input type="text" v-model="textInput" /> <!-- a. v-model with <input type="text"> -->
+        <input type="checkbox" v-model="isChecked" /> <!-- a. v-model with <input type="checkbox"> -->
+        <input type="radio" v-model="selectedRadio" value="option1" /> <!-- a. v-model with <input type="radio"> -->
+        <select v-model="selectedOption"> <!-- a. v-model with <select> -->
+            <option value="option1">Option 1</option>
+            <option value="option2">Option 2</option>
+        </select>
+        <textarea v-model="textAreaInput"></textarea> <!-- a. v-model with <textarea> -->
+    </div>
+    
+    <!-- Add your Vue.js script here -->
+    <script src="https://cdn.jsdelivr.net/npm/vue@3.0.11/dist/vue.global.prod.js"></script>
+    <script src="app.js"></script> <!-- Your custom JavaScript file -->
+</body>
+</html>
